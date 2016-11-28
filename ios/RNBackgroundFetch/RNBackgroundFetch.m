@@ -80,16 +80,16 @@ RCT_EXPORT_METHOD(finish:(NSInteger)status)
     UIBackgroundFetchResult * result;
     switch (status) {
         case 0:
-            result = UIBackgroundFetchResultNoData
+            result = UIBackgroundFetchResultNoData;
             break;
         case 1:
-            result = UIBackgroundFetchResultNewData
+            result = UIBackgroundFetchResultNewData;
             break;
         case 2:
-            result = UIBackgroundFetchResultFailed
+            result = UIBackgroundFetchResultFailed;
             break;
         default:
-            result = UIBackgroundFetchResultFailed
+            result = UIBackgroundFetchResultFailed;
             break;
     }
     TSBackgroundFetch *fetchManager = [TSBackgroundFetch sharedInstance];
