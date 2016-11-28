@@ -19,8 +19,8 @@ var API = {
   stop: function() {
     RNBackgroundFetch.stop();
   },
-  finish: function() {
-    RNBackgroundFetch.finish();
+  finish: function(status) {
+    RNBackgroundFetch.finish(status);
   }
 };
 

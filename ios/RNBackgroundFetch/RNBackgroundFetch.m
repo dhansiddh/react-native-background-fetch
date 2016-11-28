@@ -74,11 +74,26 @@ RCT_EXPORT_METHOD(stop)
     [fetchManager stop];
 }
 
-RCT_EXPORT_METHOD(finish)
+RCT_EXPORT_METHOD(finish:(NSInteger)status)
 {
     RCTLogInfo(@"- RNBackgroundFetch finish");
+    UIBackgroundFetchResult * result;
+    switch (status) {
+        case 0:
+            result = UIBackgroundFetchResultNoData
+            break;
+        case 1:
+            result = UIBackgroundFetchResultNewData
+            break;
+        case 2:
+            result = UIBackgroundFetchResultFailed
+            break;
+        default:
+            result = UIBackgroundFetchResultFailed
+            break;
+    }
     TSBackgroundFetch *fetchManager = [TSBackgroundFetch sharedInstance];
-    [fetchManager finish:RN_BACKGROUND_FETCH_TAG result:UIBackgroundFetchResultNewData];
+    [fetchManager finish:RN_BACKGROUND_FETCH_TAG result:result];
 }
 
 -(NSString*) eventName:(NSString*)name
